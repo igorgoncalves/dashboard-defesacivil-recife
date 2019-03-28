@@ -2,6 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 
+import HighchartsVue from 'highcharts-vue'
+import Highcharts from "highcharts"
+import drilldown from "highcharts/modules/drilldown"
+import mapInit from 'highcharts/modules/map'
+import addWorldMap from '@/js/worldmap'
+
+drilldown(Highcharts);
+mapInit(Highcharts);
+// addWorldMap(Highcharts);
+
 // Components
 import './components'
 
@@ -19,6 +29,8 @@ import store from '@/store'
 
 // Sync store with router
 sync(store, router)
+
+Vue.use(HighchartsVue)
 
 Vue.config.productionTip = false
 
